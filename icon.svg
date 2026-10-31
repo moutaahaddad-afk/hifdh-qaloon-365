@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="quranBg" cx="50%" cy="40%" r="68%">
+      <stop offset="0%" stop-color="#0c3d25"/>
+      <stop offset="50%" stop-color="#062416"/>
+      <stop offset="85%" stop-color="#02120a"/>
+      <stop offset="100%" stop-color="#000905"/>
+    </radialGradient>
+
+    <radialGradient id="divineAura" cx="50%" cy="46%" r="50%">
+      <stop offset="0%" stop-color="#FFF5D1" stop-opacity="0.45"/>
+      <stop offset="35%" stop-color="#D4AF37" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="#10B981" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#04130B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="qGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0"/>
+      <stop offset="25%" stop-color="#F7D877"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="75%" stop-color="#AA831A"/>
+      <stop offset="100%" stop-color="#EED36F"/>
+    </linearGradient>
+
+    <linearGradient id="qGoldLight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C69E2B"/>
+      <stop offset="50%" stop-color="#FFF7DC"/>
+      <stop offset="100%" stop-color="#E0BC4E"/>
+    </linearGradient>
+
+    <linearGradient id="pageLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#E5DCB8"/>
+      <stop offset="15%" stop-color="#FBF7EE"/>
+      <stop offset="90%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#ECE3CE"/>
+    </linearGradient>
+
+    <linearGradient id="pageRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E5DCB8"/>
+      <stop offset="15%" stop-color="#FBF7EE"/>
+      <stop offset="90%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#ECE3CE"/>
+    </linearGradient>
+
+    <linearGradient id="woodStand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a2e12"/>
+      <stop offset="40%" stop-color="#3c1d09"/>
+      <stop offset="100%" stop-color="#220e03"/>
+    </linearGradient>
+
+    <filter id="qGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#D4AF37" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="bookShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.75"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Base App Squircle -->
+  <rect width="512" height="512" rx="116" fill="url(#quranBg)"/>
+
+  <!-- Ornate Double Gold Borders -->
+  <rect x="12" y="12" width="488" height="488" rx="106" fill="none" stroke="url(#qGold)" stroke-width="2.5" opacity="0.55"/>
+  <rect x="22" y="22" width="468" height="468" rx="96" fill="none" stroke="url(#qGoldLight)" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- 4 Corner Arabesques -->
+  <g stroke="url(#qGold)" stroke-width="2" fill="none" opacity="0.75">
+    <path d="M 34 62 C 46 50 50 46 62 34 M 34 46 L 46 34 M 34 78 C 54 66 66 54 78 34"/>
+    <path d="M 478 62 C 466 50 462 46 450 34 M 478 46 L 466 34 M 478 78 C 458 66 446 54 434 34"/>
+    <path d="M 34 450 C 46 462 50 466 62 478 M 34 466 L 46 478 M 34 434 C 54 446 66 458 78 478"/>
+    <path d="M 478 450 C 466 462 462 466 450 478 M 478 466 L 466 478 M 478 434 C 458 446 446 458 434 478"/>
+  </g>
+
+  <!-- Divine Aura -->
+  <circle cx="256" cy="240" r="180" fill="url(#divineAura)"/>
+
+  <!-- Subtle Radiating Light Beams -->
+  <g opacity="0.3" stroke="url(#qGoldLight)" stroke-width="1.6">
+    <line x1="256" y1="235" x2="256" y2="70"/>
+    <line x1="256" y1="235" x2="190" y2="82"/>
+    <line x1="256" y1="235" x2="322" y2="82"/>
+    <line x1="256" y1="235" x2="132" y2="115"/>
+    <line x1="256" y1="235" x2="380" y2="115"/>
+    <line x1="256" y1="235" x2="90" y2="165"/>
+    <line x1="256" y1="235" x2="422" y2="165"/>
+  </g>
+
+  <!-- Top Crown Medallion: "رواية قالون" -->
+  <g transform="translate(256, 108)" filter="url(#qGlow)">
+    <rect x="-42" y="-42" width="84" height="84" rx="10" fill="#042013" stroke="url(#qGold)" stroke-width="2.5"/>
+    <rect x="-42" y="-42" width="84" height="84" rx="10" fill="#042013" stroke="url(#qGold)" stroke-width="2.5" transform="rotate(45)"/>
+    <circle r="36" fill="#072b1a" stroke="url(#qGoldLight)" stroke-width="1.6"/>
+    <text text-anchor="middle" y="10" font-family="'Amiri', 'Noto Naskh Arabic', serif" font-weight="bold" font-size="26" fill="url(#qGoldLight)">قالُون</text>
+    <circle cx="-68" cy="0" r="6" fill="url(#qGold)" stroke="#FFFDF0" stroke-width="1"/>
+    <circle cx="68" cy="0" r="6" fill="url(#qGold)" stroke="#FFFDF0" stroke-width="1"/>
+  </g>
+
+  <!-- Carved Wooden Stand (Rihal - حامل المصحف) -->
+  <g filter="url(#bookShadow)">
+    <path d="M 125 385 L 205 305 L 256 348 L 195 440 L 150 440 Z" fill="url(#woodStand)" stroke="#220e03" stroke-width="2"/>
+    <path d="M 387 385 L 307 305 L 256 348 L 317 440 L 362 440 Z" fill="url(#woodStand)" stroke="#220e03" stroke-width="2"/>
+    <polygon points="175,410 195,385 215,410 195,430" fill="url(#qGold)" opacity="0.8"/>
+    <polygon points="337,410 317,385 297,410 317,430" fill="url(#qGold)" opacity="0.8"/>
+  </g>
+
+  <!-- Open Holy Quran (المصحف الشريف) -->
+  <g filter="url(#bookShadow)">
+    <!-- Quran Green Leather Cover & Gold Edges -->
+    <path d="M 256 318 L 84 274 C 76 272 70 264 72 255 L 82 178 C 83 170 91 165 99 167 L 256 206 Z" fill="#062215" stroke="url(#qGold)" stroke-width="3"/>
+    <path d="M 256 318 L 428 274 C 436 272 442 264 440 255 L 430 178 C 429 170 421 165 413 167 L 256 206 Z" fill="#062215" stroke="url(#qGold)" stroke-width="3"/>
+
+    <!-- Left Open Page -->
+    <path d="M 256 210 L 102 174 C 95 172 88 178 88 186 L 98 266 C 99 272 105 277 112 278 L 256 312 Z" fill="url(#pageLeft)" stroke="#D8CDB6" stroke-width="1.2"/>
+    <path d="M 256 210 Q 185 204 102 174 L 112 278 Q 185 306 256 312 Z" fill="url(#pageLeft)"/>
+
+    <!-- Right Open Page -->
+    <path d="M 256 210 L 410 174 C 417 172 424 178 424 186 L 414 266 C 413 272 407 277 400 278 L 256 312 Z" fill="url(#pageRight)" stroke="#D8CDB6" stroke-width="1.2"/>
+    <path d="M 256 210 Q 327 204 410 174 L 400 278 Q 327 306 256 312 Z" fill="url(#pageRight)"/>
+
+    <!-- Spine Shadow -->
+    <path d="M 252 210 L 260 210 L 260 312 L 252 312 Z" fill="#9C8B6B" opacity="0.65"/>
+
+    <!-- Gold Illuminated Surah Frames -->
+    <path d="M 242 218 L 116 190 L 122 264 L 242 298 Z" fill="none" stroke="url(#qGold)" stroke-width="1.8" opacity="0.9"/>
+    <path d="M 240 221 L 120 194 L 123 210 L 240 236 Z" fill="url(#qGold)" opacity="0.8"/>
+
+    <path d="M 270 218 L 396 190 L 390 264 L 270 298 Z" fill="none" stroke="url(#qGold)" stroke-width="1.8" opacity="0.9"/>
+    <path d="M 272 221 L 392 194 L 389 210 L 272 236 Z" fill="url(#qGold)" opacity="0.8"/>
+
+    <!-- Scripture Text Lines -->
+    <g stroke="#3A3222" stroke-width="1.8" stroke-linecap="round" opacity="0.75">
+      <line x1="130" y1="223" x2="232" y2="246"/>
+      <line x1="132" y1="236" x2="234" y2="259"/>
+      <line x1="134" y1="249" x2="236" y2="272"/>
+      <line x1="136" y1="262" x2="230" y2="283"/>
+
+      <line x1="280" y1="246" x2="382" y2="223"/>
+      <line x1="278" y1="259" x2="380" y2="236"/>
+      <line x1="276" y1="272" x2="378" y2="249"/>
+      <line x1="282" y1="283" x2="376" y2="262"/>
+    </g>
+
+    <!-- Golden Aya Rosettes -->
+    <circle cx="180" cy="234" r="3.5" fill="url(#qGold)"/>
+    <circle cx="210" cy="266" r="3.5" fill="url(#qGold)"/>
+    <circle cx="332" cy="234" r="3.5" fill="url(#qGold)"/>
+    <circle cx="302" cy="266" r="3.5" fill="url(#qGold)"/>
+
+    <!-- Gilded Bookmark Ribbon -->
+    <path d="M 255 208 C 255 240 252 280 258 350 L 268 360 L 262 346 C 258 280 260 240 259 208 Z" fill="url(#qGoldLight)" filter="url(#qGlow)"/>
+  </g>
+
+  <!-- Bottom Title: "المصحف الشريف" -->
+  <g transform="translate(256, 464)">
+    <text text-anchor="middle" font-family="'Amiri', 'Noto Naskh Arabic', serif" font-weight="bold" font-size="28" fill="url(#qGold)" letter-spacing="2">المُصْحَفُ الشَّرِيف</text>
+  </g>
+</svg>
