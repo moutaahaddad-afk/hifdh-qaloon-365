@@ -1,15 +1,15 @@
-const CACHE_NAME = 'hifdh-qaloon-v13';
+const CACHE_NAME = 'hifdh-qaloon-v14';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/surahs.js',
-  '/schedule_365.js',
-  '/quran-data.json',
-  '/manifest.json',
-  '/icon.svg',
-  '/favicon.ico',
-  '/icon-192.png',
-  '/icon-512.png'
+  './',
+  'index.html',
+  'surahs.js',
+  'schedule_365.js',
+  'quran-data.json',
+  'manifest.json',
+  'icon.svg',
+  'favicon.ico',
+  'icon-192.png',
+  'icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {

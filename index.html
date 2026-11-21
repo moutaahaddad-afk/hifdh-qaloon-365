@@ -6,14 +6,14 @@
   <title>الورد اليومي وخطة الحفظ 365 | مصحف قالون عن نافع</title>
   <meta name="description" content="تطبيق حفظ القرآن الكريم كاملاً في عام واحد برواية قالون عن نافع بصوت الشيخ محمود خليل الحصري" />
   <meta name="theme-color" content="#04130B" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="مصحف قالون" />
@@ -69,8 +69,8 @@
     };
   </script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-  <script src="/surahs.js"></script>
-  <script src="/schedule_365.js"></script>
+  <script src="surahs.js"></script>
+  <script src="schedule_365.js"></script>
 
   <style>
     body {
@@ -1026,7 +1026,7 @@
 
       quranLoadPromise = (async () => {
         try {
-          const res = await fetch('/quran-data.json');
+          const res = await fetch('quran-data.json');
           if (res.ok) {
             window.QURAN_RAW_DATA = await res.json();
             console.log('✅ تم تحميل المصحف الشريف كاملاً بنجاح (114 سورة)');
@@ -2877,14 +2877,13 @@
         updateActiveAyahUI(currentAyahIdx, false, false);
         clearWordHighlights(currentAyahIdx);
       } else {
-        if (!audioElement.src || !audioElement.src.includes('.mp3')) {
-          loadAyahAudio(currentAyahIdx);
-        }
+        loadAyahAudio(currentAyahIdx);
         setPlaybackRateSafe(playbackRate);
         startBgAudioKeepAlive();
         keepAudioContextAlive();
         requestWakeLock();
         updateActiveAyahUI(currentAyahIdx, true, true);
+        showToast('⏳ جاري بدء التلاوة...');
         audioElement.play().then(() => {
           isPlaying = true;
           updatePlayBtnIcon(true);
@@ -2892,6 +2891,7 @@
           updateMediaSession();
         }).catch(err => {
           console.error('Audio play error:', err);
+          showToast('⚠️ تعذر تشغيل الصوت: ' + (err.message || 'تأكد من الاتصال'));
         });
       }
     }
@@ -3659,7 +3659,7 @@
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then((reg) => {
+        navigator.serviceWorker.register('sw.js').then((reg) => {
           reg.update();
 
           // مراقبة توفر تحديث جديد للسيرفيس وركر (updatefound)
