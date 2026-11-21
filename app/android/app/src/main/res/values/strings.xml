@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Coran 365 قالون</string>
+    <string name="title_activity_main">Coran 365 قالون</string>
+    <string name="package_name">tn.apexgs.quran365</string>
+    <string name="custom_url_scheme">tn.apexgs.quran365</string>
+</resources>

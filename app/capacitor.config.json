@@ -1,0 +1,14 @@
+{
+  "appId": "tn.apexgs.quran365",
+  "appName": "Coran 365 قالون",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "hostname": "localhost"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "webContentsDebuggingEnabled": false,
+    "backgroundColor": "#021a12"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "quran365-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Application Android (Capacitor) Coran 365 Qaloon — Apex Global Solutions",
+  "scripts": {
+    "sync-web": "powershell -NoProfile -ExecutionPolicy Bypass -File ./sync-web.ps1",
+    "cap:sync": "npm run sync-web && cap sync android",
+    "build:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build-apk.ps1"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.6.10",
+    "@capacitor/app": "7.1.2",
+    "@capacitor/core": "7.6.10"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.6.10"
+  }
+}
