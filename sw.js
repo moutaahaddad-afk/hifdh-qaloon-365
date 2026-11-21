@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hifdh-qaloon-v11';
+const CACHE_NAME = 'hifdh-qaloon-v12';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

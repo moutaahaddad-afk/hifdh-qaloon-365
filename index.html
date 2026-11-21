@@ -1051,8 +1051,8 @@
         '018001', '018002', '018003', '018004', '018005', '018006', '018007', '018008', '018009', '018010',
         '037182', '080042', '081029', '086017'
       ]),
-      // Streaming Qaloon Al-Husary complet (archive.org murattal 32kb)
-      remoteBase: 'https://archive.org/download/dhikr-alhuda-qaloon-hosary/murattal_32kb.zip/'
+      // Streaming Qaloon Al-Husary complet (archive.org alhasraa_biriwayat_qalun_32b - 6350 versets certifiés)
+      remoteBase: 'https://archive.org/download/alhasraa_biriwayat_qalun_32b/'
     };
 
     function getAudioUrlForAyah(surahId, ayahNum) {
@@ -1730,14 +1730,24 @@
       };
       audioElement.onerror = () => {
         const failedSrc = audioElement.src || '';
-        console.warn('⚠️ تعذر تشغيل المقطع الصوتي، جاري المحاولة من المصدر الاحتياطي:', failedSrc);
-        if (failedSrc.includes('archive.org')) {
+        console.warn('⚠️ تعذر تشغيل المقطع الصوتي، جاري معالجة المصدر البديل:', failedSrc);
+        // إذا كان المقطع محلياً وتعذر العثور عليه (404)، يتم التحويل فوراً إلى سيرفر قالون المباشر بأرشيف الإنترنت
+        if (failedSrc.includes('/audio/qaloon_husary/')) {
           const m = failedSrc.match(/(\d{6})\.mp3/);
           if (m) {
-            audioElement.src = `https://everyayah.com/data/Husary_128kbps/${m[1]}.mp3`;
+            audioElement.src = `${AUDIO_SOURCE_CONFIG.remoteBase}${m[1]}.mp3`;
             if (isPlaying) {
-              audioElement.play().catch(e => console.error('Fallback play failed:', e));
+              audioElement.play().catch(e => console.error('Fallback remote Qaloon play failed:', e));
             }
+            return;
+          }
+        }
+        // في حال انقطاع مؤقت لسيرفر أرشيف الإنترنت، إعادة المحاولة مرة واحدة بطلب مباشر
+        if (failedSrc.includes('alhasraa_biriwayat_qalun_32b') && !failedSrc.includes('retry=1')) {
+          const sep = failedSrc.includes('?') ? '&' : '?';
+          audioElement.src = `${failedSrc}${sep}retry=1`;
+          if (isPlaying) {
+            audioElement.play().catch(e => console.error('Retry play failed:', e));
           }
         }
       };
@@ -1910,7 +1920,18 @@
           b.classList.add('text-amber-300', 'drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]');
         }
         showToast('بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ');
-      }).catch(console.error);
+      }).catch(err => {
+        console.warn('Local basmala audio failed, playing remote 001000.mp3:', err);
+        audioElement.src = `${AUDIO_SOURCE_CONFIG.remoteBase}001000.mp3`;
+        setPlaybackRateSafe(playbackRate);
+        audioElement.play().then(() => {
+          isPlaying = true;
+          updatePlayBtnIcon(true);
+          const b = document.getElementById('mushaf-basmala');
+          if (b) b.classList.add('text-amber-300', 'drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]');
+          showToast('بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ');
+        }).catch(console.error);
+      });
     }
 
     function cycleAyahRepeat() {
